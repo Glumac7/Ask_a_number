@@ -9,11 +9,10 @@ int main()
 	int range_min;
 	int range_max;
 	int random;
-	int num = 0;
-	char again;
+	int counter = 0;
+	char again = '+';
 	std::string high_low_correct;
-	
-	
+
 	do
 	{
 		std::cout << "Guess a number in your head.\n";
@@ -22,30 +21,51 @@ int main()
 
 		std::cout << "Give me a range that i can work with(minimum and maximum): ";
 		std::cin >> range_min >> range_max;
-
-		srand(time(NULL));
+		
 
 		while (high_low_correct != "correct")
 		{
-			
-			random = rand() % range_max + range_min;
+			srand(time(NULL));
+			random = rand() % (range_max-range_min) + range_min;
 
-			std::cout << "Is " << random << " high, low or correct: ";
-			std::getline(std::cin, high_low_correct);
+			std::cout << "Is " << random << " higher, lower or your number(higher, lower, correct): ";
+			std::cin >> high_low_correct;
 
-			if (high_low_correct == "high")
+			if (high_low_correct == "higher")
 			{
-				range_max = random--;
+				random -= 1;
+				range_max = random;
+				counter++;
 			}
 
-			if (high_low_correct == "low")
+			if (high_low_correct == "lower")
 			{
-				range_min = random++;
+				random += 1;
+				range_min = random;
+				counter++;
+			}
+
+			if (range_max - range_min == 0 || high_low_correct == "correct")
+			{
+				std::cout << "Your number is " << random << "!\n";
+				high_low_correct = "a";
+				std::cout << "Number of atempts: " << counter << "\n";
+				std::cout << "Wanna play again?(Y/N): ";
+				std::cin >> again;
+				system("cls");
+			}
+
+			if (again == 'y' || again == 'Y')
+			{
+				break;
+			}
+				
+			if(again == 'n' || again == 'N')
+			{
+				return 0;
 			}
 		}
-		high_low_correct = "random";
-		std::cout << "Wanna play again?(Y/N): ";
-		std::cin >> again;
+
 	} while (again == 'Y' || again == 'y');
 
 	std::cin.get();
