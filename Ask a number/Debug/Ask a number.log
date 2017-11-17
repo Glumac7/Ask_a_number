@@ -1,3 +1,3 @@
 ﻿  Source.cpp
-c:\users\nemanja glumicic\desktop\projects\visual studio projects\ask a number\ask a number\source.cpp(28): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\nemanja glumicic\desktop\projects\visual studio projects\ask a number\ask a number\source.cpp(36): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Ask a number.vcxproj -> C:\Users\Nemanja Glumicic\Desktop\Projects\Visual Studio Projects\Ask a number\Debug\Ask a number.exe
